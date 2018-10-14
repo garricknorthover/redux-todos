@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class FormInput extends Component {
   constructor (props) {
     super(props)
-    this.state = { todos: [] }
+    this.state = { todos: [], value: '' }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -15,7 +15,7 @@ class FormInput extends Component {
   handleSubmit (event) {
     event.preventDefault()
 
-    this.setState({ todos: this.state.todos.push(this.state.value)})
+    this.setState({ todos: this.state.todos.push(event.target.value)})
   }
 
   render () {

@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import FormInput from './components/FormInput'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
+      <div className='App'>
+        <header className='App-header'>
+          <div>
             <FormInput />
-          </p>
-          
-            Learn React
-          
+          </div>
+
+          Learn React
+
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
