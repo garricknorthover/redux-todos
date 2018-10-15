@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
+import '../App.css'
 
 class FormInput extends Component {
   constructor (props) {
     super(props)
     this.state = { todos: [], value: '' }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (event) {
+  handleChange = (event) => {
     this.setState({ value: event.target.value })
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault()
 
-    this.setState({ todos: this.state.todos.push(event.target.value)})
+    this.setState({ todos: [...this.state.todos, this.state.value], value: ''})
   }
 
   render () {
@@ -27,7 +26,7 @@ class FormInput extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <button type='submit' value='add text' />
+          <input type='submit' value='add text' />
         </form>
       </div>
     )
