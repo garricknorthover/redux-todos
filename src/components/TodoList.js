@@ -5,8 +5,8 @@ class TodoList extends Component {
     super(props)
     this.state = {}
 
-    const handleSubmit = (e) => {this.setState({todos: [...this.state.todos, this.state.formInput]})}  
-    const handleChange = (e) => {this.setState({formInput: e.target.value})}
+    handleSubmit = (e) => {this.setState({todos: [...this.state.todos, this.state.formInput]})}  
+    handleChange = (e) => {this.setState({formInput: e.target.value})}
   }
   render () {
     return <form onSubmit={this.handleSubmit}>
