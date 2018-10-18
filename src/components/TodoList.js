@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { onChangeForm } from '../store/actions'
 
 class TodoList extends Component {
   constructor (props) {
@@ -20,7 +22,8 @@ class TodoList extends Component {
   }
 
   handleChange = e => {
-    this.setState({ formInput: e.target.value  })
+    this.props.onChangeForm(e.target.value)
+
   }
 
   render () {
@@ -30,7 +33,7 @@ class TodoList extends Component {
           <input
             placeholder='add todo'
             onChange={this.handleChange}
-            value={this.state.formInput}
+            value={this.props.formInput}
           />
           <input type='submit' value='Add' />
         </form>
@@ -39,5 +42,10 @@ class TodoList extends Component {
     )
   }
 }
-
-export default TodoList
+const mapDispatchToProps = {
+  onChangeForm: onChangeForm
+}
+const mapStateToProps = state => ({
+  formInput: ''
+})
+export default connect(mapStateToProps, mapDispatchToProps) (TodoList)
