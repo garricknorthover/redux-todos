@@ -5,19 +5,22 @@ class TodoList extends Component {
     super(props)
     this.state = {
       todos: [],
-      formInput: { id: Date.now(), text: '' }
+      formInput: ''
     }
   }
   handleSubmit = e => {
     e.preventDefault()
     this.setState({
-      formInput: {...this.state.formInput, id: Date.now()},
-      todos: [...this.state.todos, this.state.formInput],
+      todos: [
+        ...this.state.todos,
+        { id: Date.now(), text: this.state.formInput }
+      ],
+      formInput: ''
     })
   }
 
   handleChange = e => {
-    this.setState({ formInput: { text: e.target.value } })
+    this.setState({ formInput: e.target.value  })
   }
 
   render () {
@@ -27,7 +30,7 @@ class TodoList extends Component {
           <input
             placeholder='add todo'
             onChange={this.handleChange}
-            value={this.state.formInput.text}
+            value={this.state.formInput}
           />
           <input type='submit' value='Add' />
         </form>
