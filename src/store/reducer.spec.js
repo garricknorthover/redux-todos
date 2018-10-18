@@ -3,25 +3,25 @@ import reducer from './reducer'
 
 describe('the store', () => {
   it('handles no input ', () => {
-    expect(reducer(undefined, {})).toEqual([])
+    expect(reducer({}, {})).toEqual({})
   })
 })
 
 describe('handles input of text', () => {
   it('imputs one character', () => {
     expect(
-      reducer(undefined, {
+      reducer({}, {
         text: 'd',
         type: 'ONCHANGEFORM'
       })
-    ).toEqual([{ formName: 'd' }])
+    ).toEqual({ formInput: 'd' })
   })
 })
 
 describe('handles input of text from action function', () => {
   it('imputs one character', () => {
     expect(
-      reducer(undefined, onChangeForm('d'))
-    ).toEqual([{ formName: 'd' }])
+      reducer({}, onChangeForm('d'))
+    ).toEqual({ formInput: 'd' })
   })
 })
