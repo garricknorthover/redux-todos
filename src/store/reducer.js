@@ -2,7 +2,6 @@ import { ONCHANGEFORM } from './actionTypes'
 
 export default function reducer (
   state = {
-    todos: [],
     formInput: ''
   },
   action

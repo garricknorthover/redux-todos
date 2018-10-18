@@ -22,7 +22,7 @@ class TodoList extends Component {
   }
 
   handleChange = e => {
-    this.props.onChangeForm(e.target.value)
+    this.props.onChangeForm(this.props.formInput + e.target.value)
 
   }
 
@@ -33,7 +33,7 @@ class TodoList extends Component {
           <input
             placeholder='add todo'
             onChange={this.handleChange}
-            value={this.props.formInput}
+            
           />
           <input type='submit' value='Add' />
         </form>

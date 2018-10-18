@@ -7,7 +7,7 @@ describe('the store', () => {
   })
 })
 
-describe('handles input of text', () => {
+describe('handles input of text from object', () => {
   it('imputs one character', () => {
     expect(
       reducer({}, {
@@ -25,3 +25,5 @@ describe('handles input of text from action function', () => {
     ).toEqual({ formInput: 'd' })
   })
 })
+
+
