@@ -1,19 +1,15 @@
-import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
+import { ADDTODO, SET_NAME, SET_SURNAME } from './actionTypes'
+import { combineReducers } from 'redux'
 
-export default function reducer (
-  state = {todos:[]},
-  action
-) {
+export function todoReducer (state = [], action) {
   switch (action && action.type) {
-    case CHANGE_FORM_TEXT:
-      return { ...state.formInput, fname: action.fname, secname: action.secname }
     case ADDTODO:
       return {
         todos: [
           ...state,
           {
-            fname: action.fname,
-            secname: action.secname,
+            name: action.name,
+            surname: action.surname,
             date: action.date
           }
         ]
@@ -22,3 +18,21 @@ export default function reducer (
       return state
   }
 }
+
+export function formReducer (state = {name: '', surname: ''}, action) {
+  switch (action && action.type) {
+    case SET_NAME:
+      return { ...state, name: action.name };
+      case SET_SURNAME:
+      return { ...state, surname: action.surname };
+    default:
+      return state;
+  }
+};
+
+const reducer = combineReducers({
+  todoReducer,
+  formReducer
+})
+
+export default reducer

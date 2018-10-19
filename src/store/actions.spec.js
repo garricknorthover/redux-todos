@@ -5,8 +5,8 @@ describe('test the actions', () => {
   it('give back the right object', () => {
     expect(addTodo('first', 'second', 1)).toEqual({
       type: ADDTODO,
-      fname: 'first',
-      secname: 'second',
+      name: 'first',
+      surname: 'second',
       date: 1
     })
   })

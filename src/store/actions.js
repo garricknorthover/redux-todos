@@ -1,13 +1,16 @@
-import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
+import { SET_NAME, SET_SURNAME, ADDTODO } from './actionTypes'
 
-export const changeFormText = (fname, secname) => ({
-  type: CHANGE_FORM_TEXT,
-  fname,
-  secname
+export const setName = (name) => ({
+  type: SET_NAME,
+  name  
 })
-export const addTodo = (fname, secname, date) => ({
+export const setSurname = (surname) => ({
+  type: SET_SURNAME,
+  surname  
+})
+export const addTodo = (name, surname, date) => ({
   type: ADDTODO,
-  fname,
-  secname,
+  name,
+  surname,
   date
 })

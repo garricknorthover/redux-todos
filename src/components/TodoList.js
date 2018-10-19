@@ -1,40 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {addTodo, changeFormText} from '../store/actions'
+import { addTodo, setName, setSurname } from '../store/actions'
 
-const TodoList = ({ addTodo, changeFormText, todos, formInput }) => (
+const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
   <div>
     <form
       onSubmit={e => {
         e.preventDefault()
-        addTodo(formInput, Date.now())
-        changeFormText('')
+        addTodo(name, surname, Date.now())
       }}
     >
       <input
         placeholder='first name'
-        onChange={event => changeFormText(event.target.value)}
-        value={formInput.fname}
+        onChange={event => setName(event.target.value)}
+        value={name}
       />
       <input
         placeholder='second name'
-        onChange={event => changeFormText(event.target.value)}
-        value={formInput.secname}
+        onChange={event => setSurname(event.target.value)}
+        value={surname}
       />
       <input type='submit' value='Add' />
     </form>
-    <ul>{todos.map(todo => <li key={todo.date}>{todo.text}</li>)}</ul>
+    {/* <ul>{todos.map(todo => <li>{todo.fname}</li>)}</ul> */}
 
   </div>
 )
 
 const mapDispatchToProps = {
-  changeFormText: changeFormText,
+  setName: setName,
+  setSurname: setSurname,
   addTodo: addTodo
 }
 const mapStateToProps = state => ({
   todos: state.todos,
-  formInput: state.formInput
-}) 
-mapStateToProps({todos:[]}) //?
+  name: state.name,
+  surname: state.surname
+})
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
