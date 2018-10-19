@@ -4,7 +4,8 @@ export const onChangeForm = text => ({
   type: ONCHANGEFORM,
   text
 })
-export const addTodo = text => ({
+export const addTodo = (text, id) => ({
   type: ADDTODO,
-  text
+  text,
+  id
 })

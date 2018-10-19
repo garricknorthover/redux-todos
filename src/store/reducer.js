@@ -11,7 +11,15 @@ export default function reducer (
     case ONCHANGEFORM:
       return { ...state, formInput: action.text }
     case ADDTODO:
-      return { todos: [...state.todos, action.text] }
+      return {
+        todos: [
+          ...state.todos,
+          {
+            text: action.text,
+            id: action.id
+          }
+        ]
+      }
     default:
       return state
   }

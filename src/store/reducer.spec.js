@@ -29,8 +29,8 @@ describe('handles input of text from action function', () => {
 
 describe('adds a todo', () => {
   it('adds a todo', () => {
-    expect(reducer({ todos: [] }, addTodo('this is a todo'))).toEqual({
-      todos: ['this is a todo']
+    expect(reducer({ todos: [] }, addTodo('this is a todo', 4))).toEqual({
+      todos: [{ text: 'this is a todo', id: 4 }]
     })
   })
 })
@@ -38,7 +38,15 @@ describe('adds a todo', () => {
 describe('adds another todo', () => {
   it('adds another todo', () => {
     expect(
-      reducer({ todos: ['this is a todo'] }, addTodo('this is another todo'))
-    ).toEqual({ todos: ['this is a todo', 'this is another todo'] })
+      reducer(
+        { todos: [{ text: 'this is a todo', id: 4 }] },
+        addTodo('this is another todo', 5)
+      )
+    ).toEqual({
+      todos: [
+        { text: 'this is a todo', id: 4 },
+        { text: 'this is another todo', id: 5 }
+      ]
+    })
   })
 })
