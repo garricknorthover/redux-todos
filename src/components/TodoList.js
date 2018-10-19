@@ -4,11 +4,13 @@ import { onChangeForm, addTodo } from '../store/actions'
 
 const TodoList = ({ addTodo, onChangeForm, todos, formInput }) => (
   <div>
-    <form onSubmit={(e) => {
-    e.preventDefault() 
-    addTodo(formInput)
-    onChangeForm('')
-    }}>
+    <form
+      onSubmit={e => {
+        e.preventDefault()
+        addTodo(formInput)
+        onChangeForm('')
+      }}
+    >
       <input
         placeholder='add todo'
         onChange={event => onChangeForm(event.target.value)}
@@ -16,7 +18,6 @@ const TodoList = ({ addTodo, onChangeForm, todos, formInput }) => (
       />
       <input type='submit' value='Add' />
     </form>
-
 
     {todos.map(todo => <div>{todo}</div>)}
   </div>
