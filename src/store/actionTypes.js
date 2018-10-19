@@ -1,2 +1,2 @@
-export const ONCHANGEFORM = 'ONCHANGEFORM'
+export const CHANGE_FORM_TEXT = 'CHANGE_FORM_TEXT'
 export const ADDTODO = 'ADDTODO'

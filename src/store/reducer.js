@@ -1,4 +1,4 @@
-import { ONCHANGEFORM, ADDTODO } from './actionTypes'
+import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
 
 export default function reducer (
   state = {
@@ -8,7 +8,7 @@ export default function reducer (
   action
 ) {
   switch (action && action.type) {
-    case ONCHANGEFORM:
+    case CHANGE_FORM_TEXT:
       return { ...state, formInput: action.text }
     case ADDTODO:
       return {
@@ -16,7 +16,7 @@ export default function reducer (
           ...state.todos,
           {
             text: action.text,
-            id: action.id
+            date: action.date
           }
         ]
       }

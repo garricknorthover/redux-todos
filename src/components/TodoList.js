@@ -1,31 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { onChangeForm, addTodo } from '../store/actions'
+import * as actions from '../store/actions'
 
-const TodoList = ({ addTodo, onChangeForm, todos, formInput }) => (
+const TodoList = ({ addTodo, changeFormText, todos, formInput }) => (
   <div>
     <form
       onSubmit={e => {
         e.preventDefault()
-        addTodo(formInput)
-        onChangeForm('')
+        addTodo(formInput, Date.now())
+        changeFormText('')
       }}
     >
       <input
         placeholder='add todo'
-        onChange={event => onChangeForm(event.target.value)}
+        onChange={event => changeFormText(event.target.value)}
         value={formInput}
       />
       <input type='submit' value='Add' />
     </form>
+    <ul>{todos.map(todo => <li key={todo.date}>{todo.text}</li>)}</ul>
 
-    {todos.map(todo => <div>{todo}</div>)}
   </div>
 )
 
 const mapDispatchToProps = {
-  onChangeForm: onChangeForm,
-  addTodo: addTodo
+  changeFormText: actions.changeFormText,
+  addTodo: actions.addTodo
 }
 const mapStateToProps = state => ({
   todos: state.todos,

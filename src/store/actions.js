@@ -1,11 +1,11 @@
-import { ONCHANGEFORM, ADDTODO } from './actionTypes'
+import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
 
-export const onChangeForm = text => ({
-  type: ONCHANGEFORM,
+export const changeFormText = text => ({
+  type: CHANGE_FORM_TEXT,
   text
 })
-export const addTodo = (text, id) => ({
+export const addTodo = (text, date) => ({
   type: ADDTODO,
   text,
-  id
+  date
 })
