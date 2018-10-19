@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../store/actions'
+import {addTodo, changeFormText} from '../store/actions'
 
 const TodoList = ({ addTodo, changeFormText, todos, formInput }) => (
   <div>
@@ -29,8 +29,8 @@ const TodoList = ({ addTodo, changeFormText, todos, formInput }) => (
 )
 
 const mapDispatchToProps = {
-  changeFormText: actions.changeFormText,
-  addTodo: actions.addTodo
+  changeFormText: changeFormText,
+  addTodo: addTodo
 }
 const mapStateToProps = state => ({
   todos: state.todos,
