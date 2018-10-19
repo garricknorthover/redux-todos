@@ -1,8 +1,9 @@
 import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
 
-export const changeFormText = text => ({
+export const changeFormText = (fname, secname) => ({
   type: CHANGE_FORM_TEXT,
-  text
+  fname,
+  secname
 })
 export const addTodo = (text, date) => ({
   type: ADDTODO,

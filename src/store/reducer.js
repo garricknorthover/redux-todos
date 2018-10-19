@@ -9,13 +9,14 @@ export default function reducer (
 ) {
   switch (action && action.type) {
     case CHANGE_FORM_TEXT:
-      return { ...state, formInput: action.text }
+      return { ...state, fname: action.fname, secname: action.secname }
     case ADDTODO:
       return {
         todos: [
           ...state.todos,
           {
-            text: action.text,
+            fname: action.fname,
+            secname: action.secname,
             date: action.date
           }
         ]

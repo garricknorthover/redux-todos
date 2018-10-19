@@ -12,9 +12,14 @@ const TodoList = ({ addTodo, changeFormText, todos, formInput }) => (
       }}
     >
       <input
-        placeholder='add todo'
+        placeholder='first name'
         onChange={event => changeFormText(event.target.value)}
-        value={formInput}
+        value={formInput.fname}
+      />
+      <input
+        placeholder='second name'
+        onChange={event => changeFormText(event.target.value)}
+        value={formInput.secname}
       />
       <input type='submit' value='Add' />
     </form>
