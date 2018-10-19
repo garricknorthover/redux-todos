@@ -5,8 +5,9 @@ export const changeFormText = (fname, secname) => ({
   fname,
   secname
 })
-export const addTodo = (text, date) => ({
+export const addTodo = (fname, secname, date) => ({
   type: ADDTODO,
-  text,
+  fname,
+  secname,
   date
 })

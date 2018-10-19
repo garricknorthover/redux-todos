@@ -1,15 +1,12 @@
 import { CHANGE_FORM_TEXT, ADDTODO } from './actionTypes'
 
 export default function reducer (
-  state = {
-    todos: [],
-    formInput: ''
-  },
+  state = {todos:[]},
   action
 ) {
   switch (action && action.type) {
     case CHANGE_FORM_TEXT:
-      return { ...state, fname: action.fname, secname: action.secname }
+      return { ...state.formInput, fname: action.fname, secname: action.secname }
     case ADDTODO:
       return {
         todos: [

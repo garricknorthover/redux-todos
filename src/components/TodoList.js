@@ -35,5 +35,6 @@ const mapDispatchToProps = {
 const mapStateToProps = state => ({
   todos: state.todos,
   formInput: state.formInput
-})
+}) 
+mapStateToProps({todos:[]}) //?
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
