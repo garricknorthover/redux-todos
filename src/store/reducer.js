@@ -10,7 +10,7 @@ export default function reducer (
     case ADDTODO:
       return {
         todos: [
-          ...state.todos,
+          ...state,
           {
             fname: action.fname,
             secname: action.secname,
