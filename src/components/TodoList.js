@@ -23,7 +23,8 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
       />
       <input type='submit' value='Add' />
     </form>
-    {/* <ul>{todos.map(todo => <li>{todo.fname}</li>)}</ul> */}
+    <div>{name} {surname}</div>
+    {/* <ul>{todos.map(todo => <li>{todo.name}</li>)}</ul> */}
 
   </div>
 )
@@ -33,9 +34,11 @@ const mapDispatchToProps = {
   setSurname: setSurname,
   addTodo: addTodo
 }
-const mapStateToProps = state => ({
-  todos: state.todos,
-  name: state.name,
-  surname: state.surname
-})
+const mapStateToProps = (state) => {
+  console.log(state)
+return ({  
+  todos: state.todoReducer.todos,
+  name: state.formReducer.name,
+  surname: state.formReducer.surname})
+}
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
