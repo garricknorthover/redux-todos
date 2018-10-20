@@ -6,8 +6,9 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
   <div>
     <form
       onSubmit={e => {
+        const date = Date.now()
         e.preventDefault()
-        addTodo(name, surname, Date.now())
+        addTodo(name, surname, date)
       }}
     >
       <input
