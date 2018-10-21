@@ -1,7 +1,7 @@
 import { ADDTODO, SET_NAME, SET_SURNAME } from './actionTypes'
 import { combineReducers } from 'redux'
 
-function todoReducer (state = { todos: [] }, action) {
+export function todoReducer (state = { todos: [] }, action) {
   switch (action && action.type) {
     case ADDTODO:
       return {
@@ -20,7 +20,7 @@ function todoReducer (state = { todos: [] }, action) {
   }
 }
 
-function formReducer (state = {name: '', surname: ''}, action) {
+export function formReducer (state = { name: '', surname: '' }, action) {
   switch (action && action.type) {
     case SET_NAME:
       return { ...state, name: action.name }

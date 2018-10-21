@@ -3,8 +3,16 @@ import { todoReducer, formReducer } from './reducer'
 
 describe('handles more fields', () => {
   it('acepts 2 fields', () => {
-    expect(todoReducer([], addTodo('first', 'second', 31313))).toEqual({
+    expect(todoReducer({todos:[]}, addTodo('first', 'second', 31313))).toEqual({
       todos: [{ name: 'first', surname: 'second', date: 31313 }]
+    })
+  })
+})
+
+describe('handles more todos', () => {
+  it('acepts another todoto array', () => {
+    expect(todoReducer({todos : [{ name: 'first', surname: 'second', date: 31313 }]}, addTodo('anotherfirst', 'anothersecond', 22222))).toEqual({
+      todos: [{ name: 'first', surname: 'second', date: 31313 }, { name: 'anotherfirst', surname: 'anothersecond', date: 22222 }]
     })
   })
 })

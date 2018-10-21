@@ -5,10 +5,9 @@ import { addTodo, setName, setSurname } from '../store/actions'
 const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
   <div>
     <form
-      onSubmit={e => {
-        const date = Date.now()
+      onSubmit={(e) => {
         e.preventDefault()
-        addTodo(name, surname, date)
+        addTodo(name, surname, Date.now)
       }}
     >
       <input
@@ -24,7 +23,7 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
       <input type='submit' value='Add' />
     </form>
     <div>{name} {surname}</div>
-    {/* <ul>{todos.map(todo => <li>{todo.name}</li>)}</ul> */}
+    <ul>{todos.map(todo => <li key={todo.date}>{todo.name} </li>)}</ul>
 
   </div>
 )
