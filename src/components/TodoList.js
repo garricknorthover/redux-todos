@@ -7,7 +7,7 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        addTodo(name, surname, Date.now)
+        addTodo(name, surname, Date.now())
       }}
     >
       <input
@@ -23,7 +23,7 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
       <input type='submit' value='Add' />
     </form>
     <div>{name} {surname}</div>
-    <ul>{todos.map(todo => <li key={todo.date}>{todo.name} </li>)}</ul>
+    <ul>{todos.map(todo => <li key={todo.date}>{todo.name} {todo.surname} - {todo.date}</li>)}</ul>
 
   </div>
 )
@@ -36,8 +36,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   console.log(state)
 return ({  
-  todos: state.todoReducer.todos,
-  name: state.formReducer.name,
-  surname: state.formReducer.surname})
+  todos: state.todos,
+  name: state.formData.name,
+  surname: state.formData.surname})
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
