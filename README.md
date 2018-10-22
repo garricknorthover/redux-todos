@@ -1,2 +1,2 @@
-attempt at using redux for form state for a todo list
-pretty much succeded
+using redux for form state
+using seperate reducer for todos and another for form state
