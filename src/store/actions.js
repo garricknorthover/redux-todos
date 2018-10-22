@@ -1,20 +1,15 @@
-import { SET_NAME, SET_SURNAME, ADD_TODO, DELETE_TODO } from './actionTypes'
+import { SET_TODO, ADD_TODO, DELETE_TODO } from './actionTypes'
 
-export const setName = (name) => ({
-  type: SET_NAME,
-  name  
+export const setTodo = todo => ({
+  type: SET_TODO,
+  todo
 })
-export const setSurname = (surname) => ({
-  type: SET_SURNAME,
-  surname  
-})
-export const addTodo = (name, surname, date) => ({
+export const addTodo = (todo, date) => ({
   type: ADD_TODO,
-  name,
-  surname,
+  todo,
   date
 })
- export const deleteTodo = (date) => ({
-   type: DELETE_TODO,
-   date
- })
+export const deleteTodo = date => ({
+  type: DELETE_TODO,
+  date
+})

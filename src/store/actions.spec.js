@@ -3,10 +3,9 @@ import { ADD_TODO, DELETE_TODO } from './actionTypes'
 
 describe('test the actions', () => {
   it('give back the right object', () => {
-    expect(addTodo('first', 'second', 1)).toEqual({
+    expect(addTodo('second', 1)).toEqual({
       type: ADD_TODO,
-      name: 'first',
-      surname: 'second',
+      todo: 'second',
       date: 1
     })
   })
