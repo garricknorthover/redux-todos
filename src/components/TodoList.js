@@ -4,6 +4,7 @@ import { addTodo, deleteTodo, setTodo } from '../store/actions'
 
 const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo }) => (
   <div>
+  
     <form
       onSubmit={e => {
         e.preventDefault()
@@ -11,7 +12,6 @@ const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo }) => (
         setTodo('')
       }}
     >
-
       <input
         placeholder='Todo'
         onChange={event => setTodo(event.target.value)}
@@ -19,6 +19,7 @@ const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo }) => (
       />
       <input type='submit' value='Add' />
     </form>
+
     <ul>
       {todos.map(todo => (
         <li key={todo.date}>
