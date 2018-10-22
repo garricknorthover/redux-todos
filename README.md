@@ -1,2 +1,3 @@
-using redux for form state
-using seperate reducer for todos and another for form state
+An exercise in converting react component state to a redux store
+Also learning how to use Jest as  tool for TDD
+
