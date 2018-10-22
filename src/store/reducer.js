@@ -1,9 +1,9 @@
-import { ADDTODO, SET_NAME, SET_SURNAME } from './actionTypes'
+import { ADD_TODO, SET_NAME, SET_SURNAME, DELETE_TODO } from './actionTypes'
 import { combineReducers } from 'redux'
 
 export function todos (state = [], action) {
   switch (action && action.type) {
-    case ADDTODO:
+    case ADD_TODO:
       return [
         ...state,
           {
@@ -13,6 +13,8 @@ export function todos (state = [], action) {
           }
         ]
       
+    case DELETE_TODO:
+        return state.filter(todo => todo.date !== action.date)
 
     default:
       return state

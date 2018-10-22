@@ -1,5 +1,13 @@
-import { addTodo, setName, setSurname } from './actions'
+import { addTodo, deleteTodo, setName, setSurname } from './actions'
 import { todos, formData } from './reducer'
+
+describe('deletes todos', () => {
+  it('deletes todo by id', () => {
+    expect(todos( [{ name: 'first', surname: 'second', date: 31313 }], deleteTodo(31313))).toEqual(
+      []
+    )
+  })
+})
 
 describe('adds a todo', () => {
   it('add todo', () => {

@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo, setName, setSurname } from '../store/actions'
+import { addTodo, deleteTodo, setName, setSurname } from '../store/actions'
 
-const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
+const TodoList = ({ addTodo, deleteTodo, todos, setName, setSurname, name, surname }) => (
   <div>
     <form
       onSubmit={(e) => {
         e.preventDefault()
         addTodo(name, surname, Date.now())
+        setName('')
+        setSurname('')
       }}
     >
       <input
@@ -23,7 +25,7 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
       <input type='submit' value='Add' />
     </form>
     <div>{name} {surname}</div>
-    <ul>{todos.map(todo => <li key={todo.date}>{todo.name} {todo.surname} - {todo.date}</li>)}</ul>
+    <ul>{todos.map(todo => <li key={todo.date}>{todo.name} {todo.surname} - <button onClick={(e) => deleteTodo(todo.date)}>X</button></li>)}</ul>
 
   </div>
 )
@@ -31,7 +33,8 @@ const TodoList = ({ addTodo, todos, setName, setSurname, name, surname }) => (
 const mapDispatchToProps = {
   setName: setName,
   setSurname: setSurname,
-  addTodo: addTodo
+  addTodo: addTodo,
+  deleteTodo: deleteTodo
 }
 const mapStateToProps = (state) => {
   console.log(state)
